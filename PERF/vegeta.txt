@@ -1,0 +1,5 @@
+cat urle.txt | vegeta -cpus 1  attack -name test -duration=3s -rate 100 -timeout 20s > results.bin | vegeta plot > test_result.html
+
+
+cat urle.txt | vegeta -cpus 1  attack -name test -duration=3s -rate 100 -timeout 20s > results.bin | vegeta report
+

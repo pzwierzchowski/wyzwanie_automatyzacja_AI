@@ -1,0 +1,29 @@
+{
+  "name": "wyzwanie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzwierzchowski/wyzwanie_automatyzacja_AI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pzwierzchowski/wyzwanie_automatyzacja_AI/issues"
+  },
+  "homepage": "https://github.com/pzwierzchowski/wyzwanie_automatyzacja_AI#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^14.0.3",
+    "cypress-iframe": "^1.0.1"
+  },
+  "dependencies": {
+    "cypress-localstorage-commands": "^2.2.2",
+    "faker": "^5.5.3"
+  }
+}

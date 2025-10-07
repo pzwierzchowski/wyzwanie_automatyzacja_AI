@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "a456da7f-4f2b-4c2c-92a6-63409a235333",
+		"name": "Wyzwanie 8.10.2025 fakestoreapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39085629"
+	},
+	"item": [
+		{
+			"name": "GET Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is JSON\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response is an array\", function () {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"Response contains 20 products\", function () {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson).to.have.lengthOf(20);",
+							"});",
+							"",
+							"const responseJson = pm.response.json();",
+							"console.log(`✅ API Response Summary:",
+							"📦 Total products: ${responseJson.length}",
+							"💰 Price range: $${Math.min(...responseJson.map(p => p.price))} - $${Math.max(...responseJson.map(p => p.price))}",
+							"📊 Categories: ${[...new Set(responseJson.map(p => p.category))].join(', ')}",
+							"⭐ Avg rating: ${(responseJson.reduce((sum, p) => sum + p.rating.rate, 0) / responseJson.length).toFixed(2)}`);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
